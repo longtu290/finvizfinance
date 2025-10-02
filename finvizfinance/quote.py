@@ -249,6 +249,30 @@ class finvizfinance:
         except Exception as e:
             print(f"Error extracting ticker peers: {e}")
             return []
+
+    def ticker_etf_holders(self):
+        """Get ETFs that hold the given ticker.
+
+        Returns:
+        list: A list of ETF ticker symbols (str) that include the given ticker 
+        in their holdings. Returns an empty list if not found.
+        """
+        try:
+            etf_holders_link = self.soup.find("a", string="Held by")
+            if not etf_holders_link:
+                return []
+
+            href = etf_holders_link.get("href", "")
+            if "t=" not in href:
+                return []
+
+            tickers_part = href.split("t=")[-1]
+            etf = [ticker.strip() for ticker in tickers_part.split(",") if ticker.strip()]
+            return etf
+
+        except Exception as e:
+            print(f"Error extracting ticker etf holders: {e}")
+            return []
            
     def ticker_outer_ratings(self):
         """Get outer ratings table.
