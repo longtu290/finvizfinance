@@ -80,6 +80,14 @@ stock_peer = stock.ticker_peer()
 # stock_peer
 # stock_peer = ['LI', 'XPEV', 'NIO', 'RIVN', 'LCID', 'TM', 'HMC', 'GM', 'STLA', 'F']
 ```
+### ETF Holders
+
+```python
+stock_etf_holders = stock.ticker_etf_holders()
+
+# stock_etf_holders
+# stock_etf_holders = ['VTI', 'VOO', 'IVV', 'SPY', 'VUG', 'QQQ', 'VGT', 'IWF', 'XLK', 'SPLG']
+```
 
 #### Outer Ratings
 
