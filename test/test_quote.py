@@ -44,3 +44,10 @@ def test_ticker_peer_returns_list():
     assert isinstance(peers, list)
     assert len(peers) > 0
     assert all(isinstance(p, str) for p in peers)
+
+def test_ticker_etf_holders_returns_list():
+    stock = finvizfinance("AAPL")
+    ticker_etf_holders = stock.ticker_etf_holders()
+    assert isinstance(ticker_etf_holders, list)
+    assert len(ticker_etf_holders) > 0
+    assert all(isinstance(p, str) for p in ticker_etf_holders)    
