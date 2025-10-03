@@ -39,6 +39,8 @@ Example getting individual ticker information
 
    stock_fundament = stock.ticker_fundament()
    stock_description = stock.ticker_description()
+   stock_peers = stock.ticker_peer()
+   stock_etf_holders = stock.ticker_etf_holders()
    outer_ratings_df = stock.ticker_outer_ratings()
    news_df = stock.ticker_news()
    inside_trader_df = stock.ticker_inside_trader()
