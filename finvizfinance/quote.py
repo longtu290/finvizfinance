@@ -238,7 +238,7 @@ class finvizfinance:
             peer_link = self.soup.find("a", string="Peers")
             
             if not peer_link:
-                peer_link = self.soup.find("a", string=re.compile(r"^peers$", re.IGNORECASE))
+                peer_link = self.soup.find("a", string=re.compile(r"^\s*peers\s*$", re.IGNORECASE))
     
             if not peer_link:
                 return []
@@ -266,7 +266,7 @@ class finvizfinance:
             etf_holders_link = self.soup.find("a", string="Held by")
 
             if not etf_holders_link:
-                etf_holders_link = self.soup.find("a", string=re.compile(r"^held by$", re.IGNORECASE))
+                etf_holders_link = self.soup.find("a", string=re.compile(r"^\s*held by\s*$", re.IGNORECASE))
     
             if not etf_holders_link:
                 return []
