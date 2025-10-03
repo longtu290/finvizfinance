@@ -276,8 +276,8 @@ class finvizfinance:
                 return []
 
             tickers_part = href.split("t=")[-1]
-            etf = [ticker.strip() for ticker in tickers_part.split(",") if ticker.strip()]
-            return etf
+            etfs = [ticker.strip() for ticker in tickers_part.split(",") if ticker.strip()]
+            return etfs
 
         except Exception as e:
             print(f"Error extracting ticker etf holders: {e}")
