@@ -9,6 +9,7 @@ from datetime import datetime, date
 import json
 import pandas as pd
 import requests
+import re
 from finvizfinance.util import (
     web_scrap,
     image_scrap,
@@ -235,9 +236,13 @@ class finvizfinance:
         """
         try:
             peer_link = self.soup.find("a", string="Peers")
+            
+            if not peer_link:
+                peer_link = self.soup.find("a", string=re.compile(r"^peers$", re.IGNORECASE))
+    
             if not peer_link:
                 return []
-
+               
             href = peer_link.get("href", "")
             if "t=" not in href:
                 return []
@@ -259,6 +264,10 @@ class finvizfinance:
         """
         try:
             etf_holders_link = self.soup.find("a", string="Held by")
+
+            if not etf_holders_link:
+                etf_holders_link = self.soup.find("a", string=re.compile(r"^held by$", re.IGNORECASE))
+    
             if not etf_holders_link:
                 return []
 
